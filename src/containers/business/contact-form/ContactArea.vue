@@ -99,7 +99,7 @@
               <h4>Naxal Office</h4>
               <div>Address: Teku, Kathmandu, Nepal</div>
               <div>Email: info@helmentsnepal.com</div>
-              <div>
+              <div class="mt-4">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d5941.769831549764!2d85.31482169351003!3d27.686472775244557!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sgoogle%20map!5e0!3m2!1sen!2snp!4v1648825145720!5m2!1sen!2snp"
                   height="250"

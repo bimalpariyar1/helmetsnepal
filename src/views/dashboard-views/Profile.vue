@@ -5,7 +5,7 @@
         <div class="user-infos">
           <heading title="Account Information">
             <template #extra>
-              <router-link to="/">Edit</router-link>
+              <router-link to="/dashboard/profile/edit">Edit</router-link>
             </template>
           </heading>
 
@@ -20,18 +20,12 @@
                   <p class="m-0">ExampeAdress@gmail.com</p>
                   <p class="m-0">98456253211</p>
                 </template>
-                <template #extra>
-                  <router-link to="/">Edit</router-link>
-                </template>
               </info-tile>
             </CCol>
             <CCol md="6">
               <info-tile title="Newsletters">
                 <template #tile-content>
                   <p class="m-0">You have not subscribed to our newsletter.</p>
-                </template>
-                <template #extra>
-                  <router-link to="/">Edit</router-link>
                 </template>
               </info-tile>
             </CCol>
@@ -41,7 +35,7 @@
         <div class="addresses mt-5">
           <heading title="Address Book">
             <template #extra>
-              <router-link to="/">Edit</router-link>
+              <router-link to="/dashboard/profile/edit">Edit</router-link>
             </template>
           </heading>
           <CRow>
@@ -51,9 +45,6 @@
                   <p class="m-0">Kahtmandu Nepal</p>
                   <p class="m-0">Baneshwor, Shantinagar</p>
                 </template>
-                <template #extra>
-                  <router-link to="/">Edit Address</router-link>
-                </template>
               </info-tile>
             </CCol>
             <CCol md="6">
@@ -61,9 +52,6 @@
                 <template #tile-content>
                   <p class="m-0">Kathmandu Nepal</p>
                   <p class="m-0">Chabahil, Dhugedhara</p>
-                </template>
-                <template #extra>
-                  <router-link to="/">Edit Address</router-link>
                 </template>
               </info-tile>
             </CCol>

@@ -8,28 +8,23 @@
     <div class="mb-4">
       <h6>Select Delivery Address</h6>
       <CRow>
-        <CCol md="6" class="mb-md-0 mb-4">
-          <CCard class="p-4">
-            <div class="d-flex">
+        <CCol
+          v-for="address in addresses"
+          :key="address.type"
+          md="6"
+          class="mb-md-0 mb-4"
+          @click="() => handleAddress(address.type)"
+        >
+          <CCard
+            :class="selectedAddress === address.type ? 'selected-block' : ''"
+          >
+            <div class="d-flex block-card p-4">
               <div class="me-3">
                 <map-muted-icon />
               </div>
               <div>
-                <h6>Kathmandu Nepal</h6>
-                <p class="m-0">Baneshwor, Shantinagar</p>
-              </div>
-            </div>
-          </CCard>
-        </CCol>
-        <CCol md="6" class="mb-md-0 mb-4">
-          <CCard class="p-4">
-            <div class="d-flex">
-              <div class="me-3">
-                <map-muted-icon />
-              </div>
-              <div>
-                <h6>Kathmandu Nepal</h6>
-                <p class="m-0">Chabahil, Dhugedhara</p>
+                <h6>{{ address.city }} {{ address.country }}</h6>
+                <p class="m-0">{{ address.area }}, {{ address.place }}</p>
               </div>
             </div>
           </CCard>
@@ -39,28 +34,23 @@
     <div class="mb-4">
       <h6>Select Contact Number</h6>
       <CRow>
-        <CCol md="6" class="mb-md-0 mb-4">
-          <CCard class="p-4">
-            <div class="d-flex">
+        <CCol
+          v-for="contact in contacts"
+          :key="contact.type"
+          md="6"
+          class="mb-md-0 mb-4"
+          @click="() => handleContact(contact.type)"
+        >
+          <CCard
+            :class="selectedContact === contact.type ? 'selected-block' : ''"
+          >
+            <div class="d-flex block-card p-4">
               <div class="me-3">
                 <phone-muted-icon />
               </div>
               <div>
-                <h6>Primary</h6>
-                <p class="m-0">01526542522</p>
-              </div>
-            </div>
-          </CCard>
-        </CCol>
-        <CCol md="6" class="mb-md-0 mb-4">
-          <CCard class="p-4">
-            <div class="d-flex">
-              <div class="me-3">
-                <phone-muted-icon />
-              </div>
-              <div>
-                <h6>Secondary</h6>
-                <p class="m-0">9845623521</p>
+                <h6>{{ contact.name }}</h6>
+                <p class="m-0">{{ contact.number }}</p>
               </div>
             </div>
           </CCard>
@@ -71,8 +61,15 @@
       <h6>Select Payment Method</h6>
       <CRow>
         <CCol md="6" class="mb-md-0 mb-4">
-          <CCard class="p-4 h-100">
-            <div class="text-center">
+          <CCard
+            :class="
+              selectedPayment === 'cashOnDelivery'
+                ? 'h-100 selected-block'
+                : 'h-100'
+            "
+            @click="() => handlepayment('cashOnDelivery')"
+          >
+            <div class="text-center p-4 block-card">
               <div class="mb-2">
                 <cash-on-delivery-icon />
               </div>
@@ -81,8 +78,15 @@
           </CCard>
         </CCol>
         <CCol md="6" class="mb-md-0 mb-4">
-          <CCard class="p-4 h-100">
-            <div class="text-center">
+          <CCard
+            :class="
+              selectedPayment === 'onlinePayment'
+                ? 'h-100 selected-block'
+                : 'h-100'
+            "
+            @click="() => handlepayment('onlinePayment')"
+          >
+            <div class="text-center p-4 block-card">
               <div class="mb-2">
                 <online-payment-icon />
               </div>
@@ -123,6 +127,46 @@ export default {
     OnlinePaymentIcon,
   },
   name: "LoggedInCheckout",
+
+  data() {
+    return {
+      selectedAddress: "primary",
+      selectedContact: "primary",
+      selectedPayment: "cashOnDelivery",
+      addresses: [
+        {
+          type: "primary",
+          city: "Kathmandu",
+          country: "Nepal",
+          area: "Baneshwor",
+          place: "Shantinagar",
+        },
+        {
+          type: "secondary",
+          city: "Kathmandu",
+          country: "Nepal",
+          area: "Chabahil",
+          place: "Dhugedhara",
+        },
+      ],
+      contacts: [
+        { type: "primary", name: "Primary", number: "01526542522" },
+        { type: "secondary", name: "Secondary", number: "9845623521" },
+      ],
+    };
+  },
+
+  methods: {
+    handleAddress(type) {
+      this.selectedAddress = type;
+    },
+    handleContact(type) {
+      this.selectedContact = type;
+    },
+    handlepayment(type) {
+      this.selectedPayment = type;
+    },
+  },
 };
 </script>
 

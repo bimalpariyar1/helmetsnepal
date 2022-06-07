@@ -2255,3 +2255,11 @@ textarea {
     }
   }
 }
+
+//Blocks
+.selected-block {
+  border-color: $primary;
+}
+.block-card {
+  cursor: pointer;
+}

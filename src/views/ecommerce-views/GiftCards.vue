@@ -29,6 +29,9 @@ export default {
     GiftCardsDisplay,
   },
   name: "GiftCards",
+  mounted() {
+    window.scrollTo(0, 0);
+  },
 };
 </script>
 
