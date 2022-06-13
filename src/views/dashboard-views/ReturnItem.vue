@@ -43,11 +43,14 @@
                   />
                 </CCol>
                 <div class="mb-4">
-                  <FormKit
-                    type="checkbox"
-                    label="I agree with Terms and conditions"
-                    validation="required"
-                  />
+                  <FormKit type="checkbox" validation="required" />
+
+                  <span
+                    >I agree with
+                    <router-link to="/general-page"
+                      >terms and conditions</router-link
+                    ></span
+                  >
                 </div>
               </CRow>
               <div class="">

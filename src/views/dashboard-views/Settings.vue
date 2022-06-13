@@ -7,19 +7,19 @@
         <div class="d-flex justify-content-between border-bottom pb-2 mb-2">
           <div>Profile</div>
           <div>
-            <router-link to="/">Edit</router-link>
+            <router-link to="/profile/edit">Edit</router-link>
           </div>
         </div>
         <div class="d-flex justify-content-between border-bottom pb-2 mb-2">
           <div>Email</div>
           <div>
-            <router-link to="/">Change</router-link>
+            <router-link to="/profile/edit">Change</router-link>
           </div>
         </div>
         <div class="d-flex justify-content-between border-bottom pb-2 mb-2">
           <div>Password</div>
           <div>
-            <router-link to="/">Reset</router-link>
+            <router-link to="/change-password">Reset</router-link>
           </div>
         </div>
         <div class="d-flex justify-content-between">

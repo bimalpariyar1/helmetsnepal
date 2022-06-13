@@ -31,6 +31,9 @@ export default {
     ChangePassForm,
   },
   name: "ChangePassword",
+  mounted() {
+    window.scrollTo(0, 0);
+  },
 };
 </script>
 

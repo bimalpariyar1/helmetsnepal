@@ -28,6 +28,9 @@ export default {
     const route = useRoute();
     this.userType = route.params.type;
   },
+  mounted() {
+    window.scrollTo(0, 0);
+  },
 };
 </script>
 

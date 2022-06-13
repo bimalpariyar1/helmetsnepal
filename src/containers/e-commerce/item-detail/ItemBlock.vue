@@ -101,10 +101,17 @@
                   <div>
                     <h6>Available Sizes</h6>
                     <div>
-                      <span class="me-3">XXl</span>
-                      <span class="me-3">XL</span>
-                      <span class="me-3">MD</span>
-                      <span class="me-3">SM</span>
+                      <span
+                        v-for="(size, index) in item.sizes"
+                        :class="
+                          selectedAttributes.size === index
+                            ? 'size-palatte size-palatte-selected  me-3 mb-2'
+                            : 'size-palatte me-3 mb-2'
+                        "
+                        :key="size"
+                        @click="() => sizeHandler(size, index)"
+                        >{{ size }}
+                      </span>
                     </div>
                   </div>
                 </CCol>
@@ -113,11 +120,20 @@
                     <h6>Available Colors</h6>
                     <div>
                       <span
-                        class="color-palatte me-3"
-                        v-for="color in item.colors"
+                        v-for="(color, index) in item.colors"
                         :key="color"
-                        :style="{ background: color }"
-                      ></span>
+                        @click="() => colorHandler(color, index)"
+                        :class="
+                          selectedAttributes.color === index
+                            ? 'color-palatte-holder color-palatte-selected me-3'
+                            : 'color-palatte-holder me-3'
+                        "
+                      >
+                        <span
+                          class="color-palatte"
+                          :style="{ background: color }"
+                        ></span>
+                      </span>
                     </div>
                   </div>
                 </CCol>
@@ -219,6 +235,24 @@
 
           <div class="give-review my-5">
             <h6>Your Review</h6>
+
+            <div class="mb-3">
+              <div class="d-flex flex-wrap">
+                <span class="me-2"> Rate this item: </span>
+                <star-rating
+                  :rating="0"
+                  :increment="0.5"
+                  @update:rating="setRating"
+                  :show-rating="false"
+                  :read-only="false"
+                  :star-points="[
+                    23, 2, 14, 17, 0, 19, 10, 34, 7, 50, 23, 43, 38, 50, 36, 34,
+                    46, 19, 31, 17,
+                  ]"
+                  :star-size="15"
+                ></star-rating>
+              </div>
+            </div>
             <FormKit type="form" @submit="submitHandler" :actions="false">
               <CRow>
                 <CCol md="12" class="mb-4">
@@ -280,10 +314,10 @@
         </div>
       </CCol>
     </CRow>
+    <section>
+      <horizontal-ad-block />
+    </section>
   </CContainer>
-  <section>
-    <horizontal-ad-block />
-  </section>
 </template>
 
 <script>
@@ -310,8 +344,13 @@ export default {
   name: "ItemDetail",
   data() {
     return {
+      selectedAttributes: {
+        size: 0,
+        color: 0,
+      },
       item: {
         colors: ["#EC1B23", "#305DFC", "#958E8E", "#000000"],
+        sizes: ["XXX", "XXL", "Xl", "MD", "SM"],
       },
       qty: 1,
       breakpoints: {
@@ -346,6 +385,13 @@ export default {
 
     increaseItemQty: function () {
       this.qty = this.qty + 1;
+    },
+
+    sizeHandler: function (size, index) {
+      this.selectedAttributes = { ...this.selectedAttributes, size: index };
+    },
+    colorHandler: function (color, index) {
+      this.selectedAttributes = { ...this.selectedAttributes, color: index };
     },
   },
 };

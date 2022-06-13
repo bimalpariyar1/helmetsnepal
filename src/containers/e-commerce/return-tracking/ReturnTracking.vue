@@ -1,22 +1,24 @@
 <template>
-  <return-request-placed v-if="returnItem.returnStatus === 0" />
-  <return-request-received
-    v-if="returnItem.returnStatus === 1"
-    :returnItem="returnItem"
-  />
-  <return-in-process
-    v-if="returnItem.returnStatus === 2"
-    :returnItem="returnItem"
-  />
-  <return-accepted
-    v-if="returnItem.returnStatus === 3"
-    :returnItem="returnItem"
-  />
-  <return-retrived
-    v-if="returnItem.returnStatus === 4"
-    :returnItem="returnItem"
-  />
-  <return-denied v-else />
+  <div>
+    <return-request-placed v-if="returnItem.returnStatus === 0" />
+    <return-request-received
+      v-if="returnItem.returnStatus === 1"
+      :returnItem="returnItem"
+    />
+    <return-in-process
+      v-if="returnItem.returnStatus === 2"
+      :returnItem="returnItem"
+    />
+    <return-accepted
+      v-if="returnItem.returnStatus === 3"
+      :returnItem="returnItem"
+    />
+    <return-retrived
+      v-if="returnItem.returnStatus === 4"
+      :returnItem="returnItem"
+    />
+    <return-denied v-else />
+  </div>
 </template>
 
 <script>

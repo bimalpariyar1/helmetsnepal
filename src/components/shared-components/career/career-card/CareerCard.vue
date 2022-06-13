@@ -1,7 +1,7 @@
 <template>
   <div class="career-card">
     <div class="career-card-thumbnail mb-4">
-      <router-link :to="'/' + career.id">
+      <router-link :to="'/careers/' + career.id">
         <img :alt="title" :src="career.image" />
       </router-link>
     </div>
@@ -11,7 +11,7 @@
         <h5 class="pb-2">{{ career.title }}</h5>
       </div>
       <div>
-        <router-link :to="'/' + career.id">
+        <router-link :to="'/careers/' + career.id">
           See all {{ career.openPositions }} open positions
         </router-link>
       </div>

@@ -14,6 +14,9 @@ import LoginForm from "@/containers/auth/login-form/LoginForm.vue";
 export default {
   components: { AuthLayout, AuthTitle, LoginForm, LoginForm },
   name: "PageLogin",
+  mounted() {
+    window.scrollTo(0, 0);
+  },
 };
 </script>
 

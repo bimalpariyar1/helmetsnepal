@@ -44,6 +44,9 @@ export default {
     Register,
   },
   name: "PageRegister",
+  mounted() {
+    window.scrollTo(0, 0);
+  },
 };
 </script>
 

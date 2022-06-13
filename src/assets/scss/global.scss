@@ -1527,6 +1527,31 @@ textarea {
     border: 1px solid $border-color;
   }
 
+  .color-palatte-holder {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    &.color-palatte-selected {
+      background-color: $border-color;
+    }
+  }
+
+  .size-palatte {
+    border: 1px solid $border-color;
+    padding: 5px 10px;
+    display: inline-block;
+
+    cursor: pointer;
+
+    &.size-palatte-selected {
+      border-color: $primary;
+    }
+  }
+
   .item-qty {
     .qty-display {
       background-color: $border-color;
@@ -2262,4 +2287,21 @@ textarea {
 }
 .block-card {
   cursor: pointer;
+}
+
+//payment-gateways-selection
+
+.payment-gateways-selection {
+  display: inline-flex;
+  padding: 1.5rem;
+  cursor: pointer;
+
+  border: 1px solid $border-color;
+  img {
+    height: 30px;
+  }
+
+  &.seleted-payment {
+    border-color: $primary;
+  }
 }

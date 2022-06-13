@@ -19,6 +19,9 @@ import ForgotPassForm from "@/containers/auth/forgot-pass-form/ForgotPassForm.vu
 export default {
   components: { AuthLayout, AuthTitle, ForgotPassForm },
   name: "ForgotPassword",
+  mounted() {
+    window.scrollTo(0, 0);
+  },
 };
 </script>
 

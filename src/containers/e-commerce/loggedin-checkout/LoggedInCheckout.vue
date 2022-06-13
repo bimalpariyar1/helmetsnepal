@@ -95,12 +95,30 @@
           </CCard>
         </CCol>
       </CRow>
+
+      <div class="mt-3" v-if="selectedPayment === 'onlinePayment'">
+        <div>
+          <h6>Please select your prefered payment Gateway</h6>
+        </div>
+        <span
+          v-for="(payment, index) in paymentGateways"
+          :key="payment.id"
+          @click="() => handlePaymentGateway(index)"
+          :class="
+            selectedPaymentGateway === index
+              ? 'payment-gateways-selection seleted-payment me-3'
+              : 'payment-gateways-selection me-3'
+          "
+          ><img :src="payment.icon" alt=""
+        /></span>
+      </div>
     </div>
 
     <div class="my-4">
       <label>
         <input type="checkbox" />
-        By making this purchase you agree to our terms and conditions.
+        By making this purchase you agree to our
+        <router-link to="/general-page">terms and conditions</router-link>.
       </label>
     </div>
 
@@ -108,6 +126,11 @@
       <button class="btn btn-primary">PLACE ORDER</button>
       <span class="mx-4">|</span> or Continue
       <router-link to="/">Shopping</router-link>
+    </div>
+
+    <div class="mt-4">
+      <CAlert color="danger"> Order place failure message goes here. </CAlert>
+      <CAlert color="success"> Order place success message goes here. </CAlert>
     </div>
   </CCard>
 </template>
@@ -133,6 +156,7 @@ export default {
       selectedAddress: "primary",
       selectedContact: "primary",
       selectedPayment: "cashOnDelivery",
+      selectedPaymentGateway: 0,
       addresses: [
         {
           type: "primary",
@@ -153,6 +177,11 @@ export default {
         { type: "primary", name: "Primary", number: "01526542522" },
         { type: "secondary", name: "Secondary", number: "9845623521" },
       ],
+      paymentGateways: [
+        { id: 0, name: "Esewa", icon: "/img/payments/esewa.png" },
+        { id: 1, name: "Khalti", icon: "/img/payments/khalti.png" },
+        { id: 1, name: "Imepay", icon: "/img/payments/imepay.png" },
+      ],
     };
   },
 
@@ -165,6 +194,10 @@ export default {
     },
     handlepayment(type) {
       this.selectedPayment = type;
+    },
+
+    handlePaymentGateway(index) {
+      this.selectedPaymentGateway = index;
     },
   },
 };
