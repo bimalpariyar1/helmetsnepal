@@ -15,9 +15,9 @@ export default {
   data() {
     return {
       navLinks: [
-        { id: 1, title: "Help", slug: "/help" },
+        { id: 1, title: "Help", slug: "/general-page" },
         { id: 2, title: "FAQs", slug: "/faqs" },
-        { id: 3, title: "Contact", slug: "/contact" },
+        { id: 3, title: "Contact", slug: "/contact-us" },
       ],
     };
   },
