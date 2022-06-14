@@ -25,9 +25,9 @@ export default {
   data() {
     return {
       navLinks: [
-        { id: 1, title: "Terms of Service", slug: "terms-of-service" },
-        { id: 2, title: "Privacy Policy", slug: "privacy-policy" },
-        { id: 3, title: "Insurance Policy", slug: "insurance-policy" },
+        { id: 1, title: "Terms of Service", slug: "/general-page" },
+        { id: 2, title: "Privacy Policy", slug: "/general-page" },
+        { id: 3, title: "Insurance Policy", slug: "/general-page" },
       ],
     };
   },
